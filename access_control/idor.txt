@@ -1,0 +1,12 @@
+IDOR occurs when a dev directly make use of user input to directly reference object in the internal system.
+
+in some case, devs tries to increase access control by splitting priviledged actions into steps.
+for example, upgrading a user to admin cn be sth like :
+load the form -> submit the form -> confirm the actions
+
+if the last step is not well secured, an attacker can just perform the last step alone.
+the devs mad an assumption that the last step can not be accessed without having done the other steps
+
+
+in some other case, the dev might only well secure the first page to a priviledged action and just use referer header for thr other pages to simply validate that the request generated from the right source
+but referer header can be changed by a user.  so a user can simply change the haeder to a priviledged page tricking the backend that the request was made by a user who has access to the priviledged actions.
