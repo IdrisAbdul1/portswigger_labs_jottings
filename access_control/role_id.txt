@@ -1,0 +1,15 @@
+so for this lab i was aaskd to access then admin interface. it says that admin interface is accessed by person with role id of 2
+
+what i tried
+- when i logged in i gave the user a rle id parameter of 2
+- i went to the admin page with a query string parameter role id with a value 2. but i did not try using the roleid as a parameter (tried that and it did not work)
+
+so what i have done so far aint working, but what i know is that the iser has to have a roleid of 2 in order to access  the admin page.
+how do i give the user that. i think three ways:
+as a cookie (i have not tried that at all)
+as a parameter
+as a query string
+
+i might have been going abt this wrong, the lab header says change user role. CHANGE. the only thing that i can change is my email.
+maybe when changing my email i can now try to put the role id stuff there. 
+It works. (even changing my email automatically gives me a role id of 1. says so in the response. so i can just try to manually change it from the request)

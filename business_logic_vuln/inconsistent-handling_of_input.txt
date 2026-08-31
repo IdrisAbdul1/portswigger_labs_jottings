@@ -1,0 +1,18 @@
+so far, the lab allowed registeration of user. it sends a one time login link to the user's mail. 
+but the website says if someone works for dontwannacry then they should use @dontwannacry.com email address. is that sus ?
+
+so my normal email is 
+blaablah@exploit-my-lab-id.exploit-server.net
+but they said i can receive email to other sub domains. 
+for example, using @dontwannacry.com as a subdomain: blahblah@dontwannacry.com.exploit-my-lab-id.exploit-server.net
+but still, i am not part of the dontwannacry users. I am thinking that dontwannacry users have a special functionality 
+
+so, let me try inputting large number of text in each registeration field
+username rejected it and said invalid username format 
+email trauncated the email to a certain number. after using a mini python script, the number length is 255
+this can be exploited 
+
+I can make the trauncation point to stop right at the end of @dontwannacry.com but i still have to make it route back to my exploit server.
+so backend sees an email that endswith @dontwannacry.com and registers me as a dontwannacry user but the email server sees an email that eds with my exploit server address
+
+it works, as expected. dontwannacry users have the ability to delete any user from the admin page.

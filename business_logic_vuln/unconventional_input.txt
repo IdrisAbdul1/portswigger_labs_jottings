@@ -1,0 +1,5 @@
+most times, the devs might try to restrict the users to a certain input valudes. but sometimes, certain correct imput migth induce logic flaws.
+hence for any application, try unexpected input that a nromal user wont think of inputing. This includes exceptionally high or exceptionally low numeric inputs and abnormally long strings for text-based fields or u can even try weird data bytes.
+
+after trying inputs, ask yourself if there there any limits imposed on the data or what happens when u reach those limits and what tranformation are performed on your inputs.
+

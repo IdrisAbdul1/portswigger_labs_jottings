@@ -1,0 +1,7 @@
+websites or systems usually use a unique username and password for authentication. they can be compromised tho.
+
+username can be guessed. some uses combination of firstname and lastname like firstname.lastname@company.com
+example-where u did your IT. priviledged user can use names like admin, administrator, IT support etc
+and sometimes the website alerts us when a username is currently in use
+I can just use brute-force for both the username and password. I can use a string word-list for it.
+But mixed password gives serious problem since Alphanumerics + special characters gives over 53 quintillion permutations for just 10 charater password

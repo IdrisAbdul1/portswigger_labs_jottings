@@ -1,0 +1,3 @@
+so, i can redirect my output of the injection to a file within the web server using the redirection symbol '>'. but i think the folder has to be  a writable one.
+
+

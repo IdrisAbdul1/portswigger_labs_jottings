@@ -1,0 +1,4 @@
+sometimes, the URL to sensitive functionality gets leaked.
+
+it can get leaked in the robots.txt page 
+it can also get leaked in the client side javascript code 

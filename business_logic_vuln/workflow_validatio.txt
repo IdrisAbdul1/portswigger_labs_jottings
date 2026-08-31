@@ -1,0 +1,25 @@
+So i am currently in a lab where they said the lab made a flawed assumptions about the sequence of events in the purchasing workflow. 
+To solve the lab, exploit this flaw to buy a "Lightweight l33t leather jacket". 
+
+from what i have noticed, I can log into my account. go to the /product?productId=__ endpoint and order sth. the order action sends a post request to /cart with three parameters. quantity, redir and productID. 
+my qty can not be greater then 99 which is validated on both frontend and backend and my quantity can not be less than 0. 
+changing the qty to negative will just subtract from the current qty and if it is empty it does nothing. 
+
+in the /cart endpoint, i can submit an order. it takes me to the /cart/checkout which either redirects me to /cart/order-confirmation?order-confirmed=true if everything is in place(like sufficient money and correct coupon if provided) 
+or (/cart?err=INSUFFICIENT_FUNDS or /cart?couponError=INVALID_COUPON&coupon=55838w). 
+tryna to access /cart/order-confirmation?order-confirmed=true endpoint directly with sth in my cart gives an error saying that i have not checkout yet. 
+and if i try to check out with low funds, it brings an insufficient error.
+
+hmmm, i gotta dig more
+
+what if
+
+what does "you have not checked out yet" actually mean on the backend? it implies there's some flag or state variable tracking whether you've been through /cart/checkout. The question is: what specifically sets that flag, and when?
+
+Does it get set:
+i. only after a successful checkout (funds confirmed sufficient), or
+ii. the moment you hit the /cart/checkout endpoint at all, regardless of outcome?
+
+
+if it is the moment you hit the /cart/checkout endpoint at all, regardless of outcome the it can be exploited. i can intetionally hit the /cart/checkout with the aim ot woll result to an error just to flip the switch that makes the checkout true. 
+after that i try to purchase anything i want normally and since the checkout variable is set to true, i should purchase with no issue.

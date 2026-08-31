@@ -1,0 +1,26 @@
+the lab says This lab makes flawed assumptions about the sequence of events in the login process. 
+To solve the lab, exploit this flaw to bypass the lab's authentication, access the admin interface, and delete the user carlos. 
+
+i tried to login as a normal user. then after logging in successfully I was asked to choose a role. content-creator or user.
+I sent that request to repeater and changed it the role-selector parameter to admin. I hit send and it told me csrf is invalid. Then i went to set up macros to handle valid session and csrf (later turned it off, cos logged in through repeater does not log me in when i refresh in the browser because macros keeps refreshing the session). 
+
+so i logged in from the browser, then stopped at the GET /role selector page. i copied the set-session cookie and csrf token in the response to the POST /role selector in burp repeater
+Without hitting send, I tired to replay the request in browser using the current browser session option. I was logged in but still as a normal user. so i guess changing the role parameter to admin dosent give me admin priviledges.
+
+what if i dont tamper with the POST or GET /role-selector request and just drop it entirely ? stay with me here 
+I mean, if i use burp intercept to drop the get selector request 
+that is if no role is selected i will be logged with admin priviledges 
+
+So like 
+If role= this
+Do this
+Elif role = this 
+Do this
+Else
+Admin privileges 
+
+Nothing like
+Else if Role = admin
+Admin privileges
+
+it works, yaaaay

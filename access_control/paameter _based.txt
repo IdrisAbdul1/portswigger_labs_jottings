@@ -1,0 +1,5 @@
+soemtimes, a user functionality can be tied to a parameter or sth else. 
+like:
+a preset query string
+a hidden field
+a cookie

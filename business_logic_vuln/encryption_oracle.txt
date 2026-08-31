@@ -1,0 +1,9 @@
+the lab asked me to delete the user carlos from the admin panel.
+Some way, i am supposed to find a user controllable input that gets encrypted to a ciphertext and is still outputed by the server.
+there is a stay-logged-in cookie that appears to be encrypted to a ciphertext. 
+but the only user controllable input there is my username and password and without changing it the cookie still gets encrypted to another value if another request with the same parameters is issued.
+
+I checked the comment section and nothing seems encrypted.
+
+https://medium.com/@AhmadSopyan/business-logic-vulnerabilities-part-11-authentication-bypass-via-encryption-oracle-66c44f7ed2b1
+i used the link above to solve the lab.

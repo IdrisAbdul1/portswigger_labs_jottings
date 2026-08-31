@@ -1,0 +1,18 @@
+i have no idea what i wrong with the website
+I tried to follow the procedure a normal user would use to order something and i cant find any flaw in it.
+
+but what i found out is that i can not order more than 99 stuff at once.
+
+after a lot of research, i found out about overflow error in a 32-bit backend programming.
+
+Apparently, the number 2,147,483,648 is the highest possible number in a 32-bit system. if it is reached or passed a special phenomenom happens called integer overflow.
+when the phenomenom occurs, the value silently flips to a negative number (the lowest possible negative number) -2,147,483,648. this can be exploited.
+
+I make a item intentionally cause the integer overflow error so when the backend does the final processing it results to a negative number baasically tricking  the system and bypassing the quantity < 1 logic imposed by the system.
+
+so it is mathematically impossible to do it with one item because if the quantity is 1 thenn the price will be over 214 million and if the price is normal then the quantity will have to be very large.
+and when they see i am ordering a large no of sth (one to cause the overflow error) it becomes sus. they might not even have the amount.
+
+so to do this i have to use two items, one normal item and another to cause the overflow error.
+
+so my normal item is the jacket i wanna order and the second is the one i am want to allow to cause the error. the second item i want to cause the error is $88.48 (8848). to make it cause the amount have to be 

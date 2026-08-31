@@ -1,0 +1,26 @@
+some web applications gives special priviledges to users if their domain in the emaill address ends with a particular stuff. 
+so i need a way to register a user in such email but still able to route the email messages stuff back to me.
+
+sometimes vuln like disrepancies in parsing email can occur in web application causing flaws in authentication. 
+the assumption is that there is exactly one way to figure out the domain from an eamil string. but eemail is weird and allows weird combinations. hence, sometimes no two email parsers agree on sth.
+a strict parser might parse the email differently from a lenient one 
+
+to solve this lab i gotta read this article on splitting email : https://portswigger.net/research/splitting-the-email-atom
+jottings on the article: 
+first, know that eamil has as local and a domain part e.g idris@name.net. idris is the local part and name.net is the domain part.
+email allows quoted local part like "@"@name.net or even escaping in the quoted local part like "\""@name.net or even comments which is inserted in  parentheses '()'
+
+
+UUCP is an ancient protocol that existed before the Internet and email. It allowed you to send messages between Unix systems and stands for Unix To Unix Copy. 
+It works by using the exclamation mark as a separator between the domain and user part but in the opposite order of the traditional email address i.e domain name first then local part next.
+domain name can also be used as a hostname. https://www.jochentopf.com/email/address.html#uucp more on uucp
+source routing protocol and percent hack : https://www.jochentopf.com/email/address.html#sourcerouting
+
+code point is a numerical value which is used to identify a character for exmaple A has the code point U+0041.
+q-encoding is a special type of encoding used in mailing system (mail message header) that enables safely transmission non-ASCII characters and special symbols.
+An encoded header using Q-encoding follows a specific structure:=?charset?Q?encoded_text?=
+?= means the start of encoding 
+charset implies the kind of charset used
+?Q? signifies the type of encoding. here is it is q-encoding
+=? means the end of encoding
+Q-encoding is simply hex with an = (equal to) prefix.

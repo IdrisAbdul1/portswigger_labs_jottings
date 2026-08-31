@@ -1,0 +1,9 @@
+For the lab, accountget blocked after many retries have been made on the account 
+Hence, an account is blocked if 
+    i. the account is actually legit. that is, the acc is in the backend database
+    ii. the account has many unsuccessful login attempts
+    
+so i use burp intruder to send request for all usernames a certain number of times able to trigger the blocing action
+no burp professional so gonna take a while  on this lab cos i might have to send 1000+ requests 
+after all requests is done, the username that gets blocks suggests it is a valid one.
+the i brute-force the password

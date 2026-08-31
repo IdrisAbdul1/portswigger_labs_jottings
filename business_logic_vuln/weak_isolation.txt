@@ -1,0 +1,23 @@
+not every user will give a value to mandatory input field since some can use proxy like burpsuite to intercept and change values.
+so presence of a parameter or not might determine which code runs or not. They can cause abnormal cases when some parameter aint included or make a code that is supposed to be out of reached to be executed.
+
+When probing for logic flaws, you should try removing each parameter in turn and observing what effect this has on the response. You should make sure to:
+
+- Only remove one parameter at a time to ensure all relevant code paths are reached.
+- Try deleting the name of the parameter as well as the value. The server will typically handle both cases differently.
+- Follow multi-stage processes through to completion. Sometimes tampering with a parameter in one step will have an effect on another step further along in the workflow.
+
+
+the my-account endpoint to change password has 4 fileds 
+- Username
+- Current password
+- New password
+- Confirm new password
+
+from what i noticed, changing the username does not tell me that the username is incorrect. It updates my username to the value i supply (even if it is nothing) and tells me that password is incorrect (probably cos i guessed wrong). 
+so what happens when i guessed right,does it mean i can change the password of any user?
+and, i can change my password without supplying a current-password parameter.
+
+the i changed my username to carlos and since i do not have to provide a current-password parameter it means i can change carlos password and log into his account.
+yes, it works. I am logged into carlos account but the lab asked me to delete carlos account not access it. So i just gotta do the same for the user "administrator" and hope he has an Admin panel to delete carlos account.
+

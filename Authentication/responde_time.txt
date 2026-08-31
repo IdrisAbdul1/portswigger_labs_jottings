@@ -1,0 +1,2 @@
+so for this lab, it has a different response times for the username. Hence, i have to enumerate the username and brute force their password
+it is also said that entering noticably long password causes differeence in response time, lemme test it out

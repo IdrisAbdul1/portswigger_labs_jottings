@@ -1,0 +1,13 @@
+in this lab, i have an email change function and a redeem gift card function.
+I am thinking that somehow the flaw is in the redeem code stuff which i will exploit to give me ifinite money.
+
+so i can purchase gift card from the shop and then i can use the sign-up to get a proce discount.
+after purchasing the discounted gift card, i can redeem it and my total balance will slightly increase.
+i can exploit this by replaying the request a lot of times.
+
+I will use macros
+my workflow is 
+
+- add coupon to cart (intruder)
+- submit your order with the coupon (macros)
+- redeem the coupon in the my account page (macros)

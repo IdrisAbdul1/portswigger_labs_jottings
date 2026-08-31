@@ -1,0 +1,3 @@
+it is a general rule to always study error messages for infromation disclosure.
+verbose error messages can sometimes contain technologies being used for the webite. 
+it may sometimes contain the version and in some case be a vuln verison with public well documented strps on how it can be exploited.

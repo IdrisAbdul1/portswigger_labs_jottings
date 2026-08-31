@@ -1,0 +1,6 @@
+for debugging purpose, devs sometimes generate custom detailed message that contains sensitive information about the application when leaked in a production settings.
+debugging information can sometimes conatins stuff like 
+environmental variables
+files and directories path
+hostname and credentials
+session variables that can be edited by user.

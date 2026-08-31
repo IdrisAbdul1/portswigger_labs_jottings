@@ -1,0 +1,43 @@
+so, the pre-text says that in some website the devs choose to add a function that keeps the user logged in.
+it does this by geenrating a token that is stored in a cookie.
+So getting a hand of the cookie and analysing it can make an attacker reverse engineer the method used for the token generation
+
+some method used in geenrating the cookie can include
+- concatenating static values like Username and password 
+- encoding static values in bs64
+
+all in all, if poor token geenration is used, an attacker can brute force it.
+
+LAB 
+
+after inspection, when i log in i can choose to stay logged in. when i do that, i am assigned a cookie
+tried it different times and the cookie reamins the same, base 64 i think cos of the cw ending it
+
+d2llbmVyOjUxZGMzMGRkYzQ3M2Q0M2E2MDExZTllYmJhNmNhNzcw
+
+
+after decoding the base 64, i got this 
+
+wiener:51dc30ddc473d43a6011e9ebba6ca770
+
+now where deos the other part "51dc30ddc473d43a6011e9ebba6ca770" comes from ?
+
+after some research, the othe part is an mde hash character. a one way hash function that turns any value to a 32 hex character or 128 bits.
+different input produces a unique output. 
+
+so for brute forcing 
+a word mathemically produce a unique hash 
+so trying a word list to see if a particular one generate the same hash character 
+
+so, i wanna take a guess that the password "peter" forms the other side of the cookie
+a hash function takes in peter and coverts it to a 128 bits value.
+but then, what is the hash fucntion ?
+
+okay, i used python to convert the password list to a md5 hash values, now i cna brute force.
+
+
+d2llbmVyOjUxZGMzMGRkYzQ3M2Q0M2E2MDExZTllYmJhNmNhNzcw
+Y2FybG9zOjYzYjA0YTM3MTg0OTY5NGVmMzg2NDY4N2FkY2I0MTBh
+
+
+https://0a94003904dab57d80a89f3c00e1006c.web-security-academy.net/forgot-password?temp-forgot-password-token=548jtgmo4wmsxs50hba2o3y87svyd1pe

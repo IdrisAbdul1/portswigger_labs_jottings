@@ -1,0 +1,14 @@
+for this lab i have to brute-force the passcode but after a certain amout of bad tries, i get logged out.
+because of the fact that i get logged out after two unsessful tries means the next request from intruder gets a "no user logged in" error.
+another thing is that if i get logged out after two unsuccessful tries and i somehow log back in, the passcode changes meaning that the new passcode might be in the previous unsuccessful tries
+
+another problem is that every first authentication login request issue a new csrf token and a new session Cookie to the second authentication.
+hence the second authentication which is what i am trying to brute force uses the csrf token and session cookie issued after a successful response from the first authentication.
+then after two unsuccessful second authentication attempt, the csrf token and session cookie gets reseted cos i have been logged out.
+
+even if i manage to use a macros to grab fresh csrf token and session cookie, how do i make the failed previous tries run again 
+
+to bypass this 
+i think i should follow this workflow 
+after each request, a macros to the login endpoint to get a fresh csrf token for the new request
+this prevents  logging out which issues a new passcode

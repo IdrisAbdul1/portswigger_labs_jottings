@@ -1,0 +1,11 @@
+this lab allow new user to use a coupon that issues a $5 reduction on anything they order.
+
+hmmm, so i need to think of a way to use the coupon in a way not inteded by the devs !!!
+the coupon just minus $5 from the amount. can i stack it on each other to give me a large amount of discount. I dont think that is possible, discount espires after using once.
+
+but i noticed if i order sth less that $5 and i apply the coupon, the price drops to zero. if i order, i spend no money. and i can still use the coupon again.
+
+
+at the bottom of the page, i was asked to sign up for a new lwetter and they gave me another coupon code. meaning i now have two coupons.
+in the cart, i applied the coupon and it worked. then i found out that alternting each coupons rather than submitting two coupons after one another will make the coupons still valid.
+tbh, i found out by luck. still tryna figure out the kinda algorithm the devs used in the coupon section.

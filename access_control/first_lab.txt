@@ -1,0 +1,5 @@
+so we have: 
+vertical access control: control against special functionalities
+horizotal access control: control against accessing resources e.g IDOR
+context-based access control: for example editing ur cart adter making payment
+

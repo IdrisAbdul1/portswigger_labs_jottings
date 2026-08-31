@@ -1,0 +1,11 @@
+sometimes it is possible to find the source code of the application. this allows attackers to understand the application better and carft severe exploits.
+
+some application reference their source code file. requesting them wont really give access to u. as files ending with extensions like .php are execited immediately rather than sent to the user.
+but sometimes, while a file is being edited or executed the system created sth like a temporary backup (like the one ie experienced in ms word yesterday).
+hence, requesting the backup file can smetimes leak the source code
+
+okay, so for this lab, i checked the whole of the source code and i couldnt find any reference to a internal source code file
+i think it would have shown me a hidden directory or page in target if i had burp professional.
+anyhow, i checked the responde for all the product pages and nothing new occured 
+
+hmmm, i just decided to check the /robot.txt and finf interesting things........lab solved

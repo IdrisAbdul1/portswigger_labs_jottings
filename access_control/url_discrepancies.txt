@@ -1,0 +1,6 @@
+dev can sometimes make url discrepacies when building an application
+like, user tryna access /admin might get 401 unauthorized. but when the user types /ADMIN, it may be treated as a different endpoint and fail to enforce restriction.
+
+another one is for people using spring and have useSuffixPaternMatch option enabled. in here, /admin.js still get mapped to /admin
+
+and some application fail to map /admin and /admin/ to the same thing

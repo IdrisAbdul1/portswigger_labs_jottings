@@ -1,0 +1,20 @@
+infromation disclosure is when the devs unknowingly leaks sensitive infromation to the user.
+
+how to find infromation disclosure:
+- fuzzing: trying unexpected input in places to see what effects it has. use burp intruder with paylaod position with prebuilt words. notice respnse time, length and status codes. then use grep extract and grep matching rules for analysis.
+- using engagement tools such as search, find comments, discover contents(contents not tied to the website visible contents) etc
+- Engineering informative response. it just means studying detailed error message, in this case, then exploiting them. sometimes u can cause the application to convey your reqiured data in the error message,
+
+common sources of informative disclosure:
+- files for web crawlwers
+- Directory lisiting: occurs when a web server automatically list the contents of directories that do not have a index file present.
+- Developers comment: they can sometimes contain useful inofrmation
+
+
+the trace method will allow the web server echo the exact request it received back in its response. it is used for diagnostics purpose.
+to see the hidden headers added by intermediate proxies. but it has security risks as it sometimes leak information.
+for example, script cannpt read a http only cookie, but with a trace request then the request will be echoed in thne response for the script to read.
+
+
+git diff just shows the changes that have not been committed, it compares the cuurrent file with the recent commited file and output the difference
+while git log -p shows all past commit changes made in the file(s)

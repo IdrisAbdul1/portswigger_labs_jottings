@@ -1,0 +1,6 @@
+preliminary text 
+so, it says that 2FA logic can be broken when the system does not verify that it is the same user completing the next step.
+
+so an attacker can create an account and complete the first stage. then in the second stage, he changes his identity to a legit user of the website.
+
+but first, i have to make a passcode reuqest for the victims account. after that i brute force the passcode

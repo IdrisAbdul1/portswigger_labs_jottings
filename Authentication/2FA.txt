@@ -1,0 +1,3 @@
+out-of-band(OOB) refers to transmitting data or communicating over a completely separate, dedicated channel rather than the primary network.
+
+rsa can be software or hardware, they both randomly generate dynamic token. while keypad is hardware that accepts ur password and outputs a passcode u use to login.

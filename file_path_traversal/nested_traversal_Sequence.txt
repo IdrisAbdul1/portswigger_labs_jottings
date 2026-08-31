@@ -1,0 +1,8 @@
+for this, some application tries to prevent path traversal by removing a sequence of two dots and a slash
+it can be used against them
+
+on a norms
+../ after filtering becomes nothing cos it has been removed 
+
+then i can have 
+....// whcih becomes ../ cos the nested ../ is removed 
