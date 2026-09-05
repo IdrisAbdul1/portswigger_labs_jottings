@@ -1,0 +1,15 @@
+web shell scripts can take control of the vuln web server when uploaded successfully. it occurs cos u are allowed to upload files without proper validation.
+it depends on two main factor
+- what cause restriction for uploading a file: size, type, contents etc
+- what restrictions are imposed on a file once successfully uploaded
+
+so if ------ aint properly validated:
+- file type: it can lead to remote code execution causing attacker to take control over the server
+- file name: allows over-writing of a file and can be bad if the file is important. worse if path traversal vuln occurs
+- file size: cause Denial Of Service by filling up the disk storage.
+
+Dynamic file has no relationship with the file system because they are temporary file that lives in the computer active memory.
+MIME (Multipurpose Internet Mail Extension) is an tells how specific files would be handled or displayed e.g (text/html, image/png)
+
+
+
