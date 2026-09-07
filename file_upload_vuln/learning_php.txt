@@ -6,6 +6,8 @@ var_dump() function is used to check the data type of a variable
 
 we use the static keyword to declare local scope variable that we do not want to be deleted.
 we use thhe global keyword to access a global variable from inside a local environment
+when a variable is declared with the ampersand synmbol in a local environment then it acts like a global variable. the paramter is passed by reference making any edit done to the variable in the local function to be reflected in the original variable.
+
 
 
 echo and print can both be used to output stuff in PHP but they have certain differences 
@@ -16,3 +18,25 @@ echo has no return value while print has a return value of 1.
 echo and print can be used with or without a parentheses
 echo and print can contain html markup 
 echo and print allows variable to be insterted into the string without cocatenating. but u concatenate when u use a single quote. concatenation is done using "." .
+
+
+Data Types
+we have mostly same data types as msot pl i.e (int, string, boolean, null, float, array, object and resources)
+
+Operators
+They are synmbols used to perform operations on Variables. They can be:
+Arithemetic Operators: +, *, /, -. %, **
+Assignment Operators: +=, -=, *=, /=, %=, =
+Comparison Operators: ==, === (equal and have the same datatype) etc
+Increament Operators: x++ (returns x first then increament it by 1), ++x (increament x by 1 then returns it), --x, x--
+Logical Operators: AND, &&, ||, OR, XOR, NOT etc
+String Operators: ., .= (appending assignment)
+
+
+
+Function
+Creating function is just like in js. function keyword, then function name then the body. function can have 0,1 or multiple parameter.
+Unknown Multiple paraemtered function are called variadic function. the parameters are declared by beginning with three dots (...) and are always the last parameter when multiple parameter is involved.
+e.g function Test($param1, $param2, ...$multiple_param) {
+    // function body;
+}
