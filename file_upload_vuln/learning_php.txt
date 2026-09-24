@@ -40,3 +40,15 @@ Unknown Multiple paraemtered function are called variadic function. the paramete
 e.g function Test($param1, $param2, ...$multiple_param) {
     // function body;
 }
+
+lets move back to solving labs. writing this just to 
+set up git on my new dell laptop
+anyhoo
+
+
+Function
+Creating function is just like in js. function keyword, then function name then the body. function can have 0,1 or multiple parameter.
+Unknown Multiple paraemtered function are called variadic function. the parameters are declared by beginning with three dots (...) and are always the last parameter when multiple parameter is involved.
+e.g function Test($param1, $param2, ...$multiple_param) {
+    // function body;
+}
