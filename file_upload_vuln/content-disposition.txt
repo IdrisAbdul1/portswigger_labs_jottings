@@ -1,0 +1,4 @@
+Content-Disposition vs. Content-Type
+- Content-Disposition: Identifies where the data belongs. It provides the HTML input field name and the original filename so the server can map the data correctly.
+- Content-Type: Describes what the data is. It specifies the media format (MIME type like image/jpeg or application/pdf) so the server knows how to process the payload.
+- Security Risk (Spoofing): Attackers can falsify the Content-Type header (e.g., sending a .js script labeled as image/jpeg).
