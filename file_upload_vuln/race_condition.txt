@@ -1,0 +1,20 @@
+some website take precautionary measures by storing the uploaded file temporarily in a sandboxed environment. 
+sometimes , dev can make the file to be uploaded into the main filesystem. then the file will be removed if it dosent meet the required security.
+but the time after the file enter the filesystem and before it gets removed can be enough for an attacker script to run even if the timeframe can be as small as milliseconds.
+
+
+soooo........think
+for the next lab, i need to allow my php file to run before it gets removed from the filesystem.
+from the code i am reviewing, the function mov+_uploaded_file moves the uploaded into the file system.
+so, the file got uploaded first. Then the server now verify the file and deletes it if it dosent meet requirement.
+
+the time window between "move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);" and "unlink($target_file);" is what i have to make the script run
+but how do i make it run with that short time frame ? research time.
+
+can i use burp macros ?
+immediately i upload the file, a macros which request the file will immediately run. it didnt work
+why ? because burp macros is simultaneous. before the post macros request runs, the request uploading the file must have gotten a response from the server (in this case, our file being deleted).
+
+how about if i try turbo intruder, two running simultaneously.
+one is sending a post request uploading the file and the other is sending a GET request to the uploaded file.
+hopefully, one get request hits the server before the file is deleted.

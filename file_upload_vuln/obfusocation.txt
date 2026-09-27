@@ -1,0 +1,16 @@
+even if the file extension is blacklisted, the filename can be obfusocated so the backend can be tricked.
+
+examples: 
+- case sensitivity 
+- using multiple file extensions. e.g filename.png.jpg
+- adding characters like trailing spaces, dots. e.g (filename.php.)
+- URL encoding which can bypass upload verification. and can get decoded server-side. also try to use double url encoding.
+- using semi colon or URL encoded null bytes (%00) before file extension. 
+    if validation is done using high language and file is processed using lower level languages like C/C++ then a discrepancy can occur in what is considered as the end of the filename.
+    e.g exploit.asp;.jpg or exploit.asp%00.jpg
+
+
+for the next lab, the said only png and jpg is allowed when i tried a php file.
+so i changed the filename in the content disposition to have a null character (encoded as %00)before the original and allowed file extension. e.g filename.php%00.jpg
+did this cos i thought the .jpg at the end would be ignored. 
+it worked.

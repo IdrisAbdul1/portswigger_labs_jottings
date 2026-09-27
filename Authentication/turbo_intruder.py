@@ -13,5 +13,3 @@ def queueRequests(target, wordlists):
 
 def handleResponse(req, interesting):
     table.add(req)
-
-

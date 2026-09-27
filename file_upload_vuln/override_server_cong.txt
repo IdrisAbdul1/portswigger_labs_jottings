@@ -18,9 +18,9 @@ ________________________________________________________________________________
 
 for the next lab, I think i am allowed to upload config files
 i already tried uploading a php file and it failed, a 403 forbidden error. 
-lemme try a python file: it did not work. got served to be as a text. and when i tried uploading to another directory it gave me an invalid file name.
+lemme try a python file: it did not work. got served to me as a text. and when i tried uploading to another directory it gave me an invalid file name.
 tried uploading a web.config file but it did not work.
 
-did a littlt research and found out that the config file for this lab is .htaccess and the content would be sth like application/x-httpd-php AddType application/x-httpd-php .fake.
+did a little research and found out that the config file for this lab is .htaccess and the content would be sth like application/x-httpd-php AddType application/x-httpd-php .fake.
 it means that any file ending with a .fake file extension should be processed using php.
 the application/x-httpd-php is a long-standing configuration identifier used by web servers like Apache to map .php files to the PHP processor. 
