@@ -1,0 +1,55 @@
+concurency simply means ability to perform multiple tasks simultaneously.
+ORM - Object Relational Model connects object oriented code to the relational database. 
+With race condition, everything is multi step.
+Nagel's algorithm improves the efficiency of a tcp\ip network by reducing the amount of packets to be sent over.
+it simply states that 
+    inhibit the sending of new TCP segments when new outgoing data arrives from the user 
+    if any previously transmitted data on the connection remains unacknowledged.
+
+The END_STREAM flag
+    It is a control bit set inside a frame header to let the server know that an endpoint will no longer send frames on that stream anymore.
+    it is commonly used in HEADER frames or final DATA frame.
+    sending it transitions the stream to a half-closed (local) state
+    receiving it transitions the stream to a half-closed(remote) state
+    if both sides sends an END_STREAM then the stream closes
+
+Adapting to target architecture
+    most backend code/server sits behind a front-end server. 
+    hence frontend server might send request to them over an existing connection or create a new one 
+    this can cause inconsistent timing in processing of requests.
+    Hence, it is cruicial to warm up the server by sending a series of inconsiquential requests before performing the main attack.
+
+Methodology:
+    based on the paper, he used three different methodologies. predict, probe and prove.
+
+    predict
+        testing every possible endpoint in the web application seems illogical. 
+        first, identify an object with security control u would like to bypass
+        then identify each endpoints that either read data and use it for sth or write data to the database
+        the for each of the associated endpoints, ask:
+            i. how the state is stored: client-side stored state can often be skipped safely. server-side stored state are the interesting ones
+            ii. editing or appending data: appending of data are unlikely to be vulnerable to anything other then limit overrun attacks.
+            iii. what are the operation keyed on: most endpoint operate on a specific record which is accessed using a key. 
+                in order for a collision to occur, two requests must be accessing the same resources which can only be done if they use the same key.
+        
+    probe for clues
+        look for clues of  existence of hidden sub-states.
+        we craft multiple requests with different parameters to trigger all possible code paths. 
+        even try changing parameters to different input values and inspect the output.
+        then we benchmark the endpoint under normal condition. try sending multiple requests with a few seconds between each requests
+        then use single packet attack or last byte sync to issue all the requests at once.
+        analyze the requests and look for clues in form of deviation from the benchmarked request.
+        clues can be anything different from the benchmarked request. make sure to analyse this very well as it is the most important part in the attack
+    
+    prove the concept
+        proving depends on the type of vulnerablility u are dealing with.
+
+
+partial construction attacks
+    this occurs when an object is created in the middle of a multiple making there to be a period where the object is unsafe. 
+    example can be when changing password. if done using multiple sql statement, a window can happen where the password has a null value. 
+    so during the race window, if i provide an input that will resolve to a null value, i can be granted a user's acc.  (NOTE is is my own crafted example)
+
+Locking
+    some application locks resources to one worker. they prevent race condition by sequentially processing requests made by the same user's session
+    this can be bypassed by attacking using different sessions

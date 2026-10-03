@@ -13,3 +13,7 @@ MIME (Multipurpose Internet Mail Extension) is an tells how specific files would
 
 
 
+Sometimes, upload function is not available on the clientside but some website can allow PUT request which can be used to upload resources to the server. 
+The resources can later be served to innocent user. (Stored XSS)
+
+Try sending OPTIONS request to each endpoints to know which HTTP request is allowed.

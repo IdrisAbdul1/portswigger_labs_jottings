@@ -1,0 +1,21 @@
+Race conditions happens when different threads are trying to edit the same resources leading to unexpected behaviour by the system.
+It is a carefully times request. mostly occuring in multiple threaded application
+time-of-check to time-of-use (TOCTOU) flaws
+
+find a request that has a race condition flaw
+then send multiple requests to see if you can overrun the ratelimit.
+but several internal and external factors can influence the request 
+- Network latency: Time taken for a packet to reach the server
+- Network jitter: it is the variation in delay between packets
+    HTTP/2 can be used to reduce network jitter. it allows sending of one sinlge TCP packet that contains 20 - 30 requests simultaneously thereby having the same jitter.
+
+based on the first lab, for a race condition vuln to occur some things have to be in place 
+
+
+1. Shared, Server-Side State Tracked by Session
+- The state of the action (in this case, the shopping cart and applied discounts) is stored server-side and tied to a unique identifier, like a session cookie or user ID.
+2. A "Check-then-Act" Workflow (Time-of-Check to Time-of-Use)
+- The application validates a condition before executing an action. Based on the text, the server first checks if a coupon has already been applied (Coupon already applied). 
+    If it hasn't, it proceeds to apply the discount and update the database.
+3. A Propagation Delay (The Race Window)
+- There is a temporary race window—a split-second delay between the moment the server checks/approves the request and the moment it finally writes the update to the database to log that the coupon has been used.
